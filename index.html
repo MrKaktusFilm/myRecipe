@@ -1,0 +1,178 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="/src/style.css" rel="stylesheet">
+</head>
+<body class="bg-blue-100">
+  <div class="flex flex-row justify-center items-center gap-6 m-6">
+    <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="size-30" preserveAspectRatio="xMidYMid meet" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
+      <path fill="#2B3B47" d="M217.968 341.743l-1.555 2.008c-1.038 1.286-2.523 3.208-4.48 5.588a471.424 471.424 0 0 1-7.125 8.52a397.877 397.877 0 0 1-4.455 5.168a442.017 442.017 0 0 1-4.992 5.676a491.597 491.597 0 0 1-5.485 6.113c-1.905 2.103-3.873 4.279-5.93 6.481c-4.082 4.437-8.452 9.051-12.992 13.804l-6.957 7.197l-7.205 7.297c-2.411 2.468-4.911 4.887-7.382 7.352a598.808 598.808 0 0 1-7.497 7.353l-7.549 7.301l-7.571 7.163c-5.058 4.701-10.059 9.303-14.976 13.679c-9.821 8.767-19.22 16.716-27.451 23.354a575.821 575.821 0 0 1-11.358 8.933a442.681 442.681 0 0 1-8.968 6.676C58.995 495.039 56 497 56 497c-14.924 9.771-34.943 5.594-44.714-9.33c-7.249-11.072-6.798-24.968 0-35.383c0 0 1.961-2.995 5.592-8.039a437.107 437.107 0 0 1 6.676-8.968a583.432 583.432 0 0 1 8.933-11.358c6.638-8.232 14.587-17.631 23.354-27.452c4.377-4.917 8.978-9.919 13.679-14.976l7.163-7.571l7.301-7.549c2.43-2.527 4.89-5.023 7.353-7.497c2.466-2.471 4.885-4.971 7.352-7.382l7.297-7.205l7.197-6.957c4.754-4.54 9.367-8.91 13.804-12.992c2.202-2.057 4.378-4.025 6.481-5.93a491.597 491.597 0 0 1 6.113-5.485a434.44 434.44 0 0 1 5.676-4.992a412.815 412.815 0 0 1 5.168-4.455a479.928 479.928 0 0 1 8.52-7.125c2.38-1.957 4.302-3.443 5.588-4.48l2.008-1.555c16.006-12.395 39.03-9.469 51.425 6.537c10.452 13.492 9.986 31.991.002 44.887z"></path>
+      <path fill="#4E5D66" d="M163.552 404.873c-18.928 18.927-79.065-41.211-60.138-60.138l32.138-32.138l60.138 60.138l-32.138 32.138z"></path><circle fill="#2B3B47" cx="297.083" cy="207.41" r="203.409"></circle><circle fill="#597B91" cx="297.083" cy="207.41" r="158.41"></circle><path fill="#F9F9F7" d="M259.415 302.343c-38.87-.311-70.766-32.034-71.277-70.901c-.394-29.951 17.538-55.752 43.292-66.918c14.697-6.373 27.017-17.054 36.146-30.217c17.227-24.839 46.118-40.975 78.751-40.475c50.569.774 91.804 42.067 92.509 92.637c.733 52.524-41.625 95.333-93.981 95.333c-.969 0-1.935-.015-2.897-.044c-16.161-.49-32.273 3.084-46.301 11.124c-10.664 6.111-23.044 9.567-36.242 9.461zM52.255 471.588l10-10c4.295-4.296 4.295-11.261 0-15.557c-4.296-4.295-11.261-4.295-15.557 0l-10 10c-4.295 4.296-4.295 11.261 0 15.557c2.148 2.147 4.963 3.222 7.778 3.222s5.631-1.075 7.779-3.222z"></path>
+      <circle fill="#FFA41F" cx="344.855" cy="187.81" r="48.061"></circle></g>
+    </svg>
+    <h1 class="text-6xl font-semibold font-serif">MyRecipe</h1>
+  </div>
+  <div  class="flex flex-col max-w-6xl mx-auto pt-6 gap-6" x-data="{
+      portions: 2, 
+      vegan: false,
+      getIngredient() {
+        return this.vegan ? 'Tofu' : 'Hühnerbrust';
+      },
+      getPluralSuffix(suffix) {
+        return this.portions === 1 ? '' : suffix;
+      }
+    }">
+    <div class="flex flex-row">
+      <img src="src/assets/curry.jpeg" class="rounded-2xl">
+      <div class="ml-6">
+        <h2 class="section-header mb-4">Mango Curry</h2>
+        <p class="text-lg">Mango Curry ist ein köstliches Gericht, das die süße Fruchtigkeit reifer Mangos mit herzhaften Gewürzen wie Curry, Ingwer und Kokosmilch vereint. Die cremige Sauce harmoniert perfekt mit Gemüse, Hühnchen oder Tofu und sorgt für ein exotisches Geschmackserlebnis. Ideal für alle, die asiatische Küche lieben und etwas Besonderes auf den Teller bringen möchten. Perfekt zu Reis serviert!</p>
+
+        <hr class="divider">
+
+        <div class="flex flex-row items-center gap-4 mt-4 justify-center">
+          <button class="selection_button" x-on:click="if(portions > 1) portions--">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
+            </svg>
+            
+          </button>
+          <p class="border rounded-4xl py-2 px-4" x-text="`${portions} Portion${getPluralSuffix('en')}`"></p>
+          <button class="selection_button" x-on:click="if(portions < 10) portions++">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>            
+          </button>
+        </div>
+
+        <hr class="divider">
+
+        <div class="flex flex-row items-center gap-4 mt-4 justify-center">
+          <button class="selection_button flex flex-row" x-on:click="vegan = false" :class="!vegan ? 'bg-green-200' : ''">
+            <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12.4427 9.88469 9.93591 7.50961c.81449-.81448.80559-2.06903-.02046-2.89511-.82608-.82607-2.08062-.83494-2.89511-.02046-.4791.47911-.71525 1.20118-.56606 1.82948-.6283-.14919-1.35037.08695-1.82948.56606-.81448.81448-.80561 2.06903.02047 2.89511.82607.82611 2.08062.83491 2.8951.02046l2.50233 2.29305m.8063-1.38c1.83-1.8299 5.1241-1.22213 7.1925.8462 2.0684 2.0684 2.3191 4.6228.2978 6.6441-1.0322 1.0321-2.1287 1.6094-3.2302 1.6518.5878-1.3405.2254-2.5874-.8127-3.2811-.918-.6135-2.1806-.7802-3.5479.179-1.10401-2.0578-1.30393-4.6355.1005-6.04Z"/>
+            </svg>
+            <p class="ml-2">Klassisch</p>              
+          </button>
+
+          <button class="selection_button flex flex-row" x-on:click="vegan = true" :class="vegan ? 'bg-green-200' : ''">
+            <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 10.0419c-1.3902 0-1.3935-1.1249-4.20643-1.037-1.73056.05408-3.15551 2.2303-2.71168 5.3081C5.35949 16.2381 6.98619 21 8.99172 21c2.00548 0 2.07358-.8508 3.00828-.8508.9347 0 .8551.8508 3.0083.8508s3.6322-4.7619 3.9098-6.687c.4438-3.0778-.9811-5.25402-2.7117-5.3081-2.8129-.0879-2.8162 1.037-4.2064 1.037Zm2.3598-4.2126c-.8779.74829-1.8612.71957-2.7221.71957 0-.62576.0792-1.94012.8609-2.76911.7817-.82898 2.1271-.7664 2.6434-.7664 0 .59448.0956 2.06766-.7822 2.81594Z"/>
+            </svg>          
+            <p class="ml-2">Vegan</p>  
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="flex flex-col border rounded-2xl p-6 text-lg border-gray-400 bg-green-50" x-data="{ page: 0 }">
+      <div class="flex flex-row justify-between mx-10">
+        <button class="tab_button" x-on:click="page = 0" :class="page === 0 ? 'bg-green-200' : ''">
+          <h2 class="section-header">Zutaten</h2>
+        </button>
+        <button class="tab_button" x-on:click="page = 1" :class="page === 1 ? 'bg-green-200' : ''">
+          <h2 class="section-header">Zubereitung</h2>
+        </button>
+        <button class="tab_button" x-on:click="page = 2" :class="page === 2 ? 'bg-green-200' : ''">
+          <h2 class="section-header">Nährwerte</h2>
+        </button>
+      </div>
+      <hr class="divider">
+
+      <div class="flex flex-col gap-3" x-show="page === 0">
+        <p x-text="`${portions*150}ml Kokosmilch`"></p>
+        <p x-text="`${portions*100}g ${getIngredient()}`"></p>
+        <p x-text="`${portions*150}g Basmati-Reis`"></p>
+        <p x-text="`${portions*100}g gefrorene Mango`"></p>
+        <p x-text="`${portions} kleine Zwiebel${getPluralSuffix('n')}`"></p>
+        <p x-text="`${portions*2} Knoblauchzehen`"></p>
+        <p x-show="portions < 4">1 kleines Stück Ingwer</p>
+        <p x-show="portions > 3 && portions < 7">1 mittelgroßes Stück Ingwer</p>
+        <p x-show="portions > 6">1 großes Stück Ingwer</p>
+        <p x-text="`${portions}EL Kokosfett`"></p>
+        <p x-text="`${portions}TL Kreuzkümmel`"></p>
+        <p x-text="`${portions}TL Kurkuma`"></p>
+        <p x-text="`${portions}TL Garam Masala`"></p>
+        <p>Rapsöl</p>
+        <p>Salz und Pfeffer nach Geschmack</p>
+        <p>Frischer Koriander zum Garnieren</p>
+  
+      </div>
+
+      
+      <div class="flex flex-col gap-6" x-show="page === 1">
+        <div>
+          <h3 class="step-header">Schritt 1: Vorbereitung</h3>
+          <p x-text="`Zwiebel, Knoblauch und Ingwer fein hacken. ${getIngredient()} in mundgerechte Stücke schneiden.`"></p>
+        </div>
+
+        <div>
+          <h3 class="step-header">Schritt 2: Anbraten</h3>
+          <p x-text="`Kokosfett in einer Pfanne erhitzen. Zwiebel, Knoblauch und Ingwer darin 2–3 Minuten glasig dünsten. Parallel ${getIngredient()} in einer anderen Pfanne in reichlich Öl anbraten.`"></p>
+        </div>
+
+        <div>
+          <h3 class="step-header">Schritt 3: Würzen</h3>
+          <p>Currypulver, Kurkuma und Kreuzkümmel den Zwiebel, Knoblauch und Ingwer hinzufügen und kurz mitrösten, bis es aromatisch duftet.</p>
+        </div>
+
+        <div>
+          <h3 class="step-header">Schritt 4: Zusammenfügen</h3>
+          <p>Aufgetaute Mango und Kokosmilch hinzufügen. Alles gut verrühren und bei mittlerer Hitze ca. 10 Minuten köcheln lassen.</p>
+        </div>
+
+        <div>
+          <h3 class="step-header">Schritt 5: Abschmecken</h3>
+          <p>Mit Salz und Pfeffer würzen. Wer mag, kann das Curry leicht pürieren, um es sämiger zu machen.</p>
+        </div>
+
+        <div>
+          <h3 class="step-header">Schritt 6: Tofu/Hühnchen hinzufügen</h3>
+          <p x-text="`Die angebratenen ${getIngredient()}-Stücke zum Curry geben und alles gut vermischen. Weitere 5 Minuten köcheln lassen, bis alles gut durchgezogen ist.`"></p>
+        </div>
+
+        <div>
+          <h3 class="step-header">Schritt 7: Servieren</h3>
+          <p>Reis nach Packungsanleitung kochen. Mango Curry mit frischem Koriander garnieren und zusammen mit dem Reis servieren. Guten Appetit!</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-3 justify-between gap-4" x-show="page === 2">
+        <p class="text-xl font-semibold">Nährstoff</p>
+        <p class="text-xl font-semibold text-right">Pro Portion</p>
+        <p class="text-xl font-semibold text-right">Gesamt</p>
+      
+        <p>Kalorien</p>
+        <p class="text-right">350 kcal</p>
+        <p class="text-right" x-text="`${portions * 350} kcal`"></p>
+      
+        <p>Protein</p>
+        <p class="text-right">25 g</p>
+        <p class="text-right" x-text="`${portions * 25} g`"></p>
+      
+        <p>Kohlenhydrate</p>
+        <p class="text-right">45 g</p>
+        <p class="text-right" x-text="`${portions * 45} g`"></p>
+      
+        <p class="pl-4">davon Zucker</p>
+        <p class="text-right">12 g</p>
+        <p class="text-right" x-text="`${portions * 12} g`"></p>
+      
+        <p>Fett</p>
+        <p class="text-right">18 g</p>
+        <p class="text-right" x-text="`${portions * 18} g`"></p>
+      
+        <p class="pl-4">davon gesättigt</p>
+        <p class="text-right">8 g</p>
+        <p class="text-right" x-text="`${portions * 8} g`"></p>
+      
+        <p>Ballaststoffe</p>
+        <p class="text-right">4 g</p>
+        <p class="text-right" x-text="`${portions * 4} g`"></p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

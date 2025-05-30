@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+.step-header {
+  @apply text-xl font-semibold mb-2;
+}
+
+.section-header {
+  @apply text-2xl font-semibold;
+}
+
+.divider {
+  @apply my-4 border-gray-300;
+}
+
+.selection_button {
+  @apply border rounded-4xl py-2 px-4 hover:bg-green-300 transition-colors duration-300;
+}
+
+.tab_button {
+  @apply rounded-4xl py-2 px-6 hover:bg-green-300 transition-colors duration-300
+}
