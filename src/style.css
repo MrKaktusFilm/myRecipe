@@ -9,7 +9,7 @@
 }
 
 .divider {
-  @apply my-4 border-gray-300;
+  @apply my-4 border-gray-400;
 }
 
 .selection_button {

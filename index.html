@@ -32,14 +32,14 @@
         <hr class="divider">
 
         <div class="flex flex-row items-center gap-4 mt-4 justify-center">
-          <button class="selection_button" x-on:click="if(portions > 1) portions--">
+          <button class="selection_button bg-green-50" x-on:click="if(portions > 1) portions--">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
             </svg>
             
           </button>
-          <p class="border rounded-4xl py-2 px-4" x-text="`${portions} Portion${getPluralSuffix('en')}`"></p>
-          <button class="selection_button" x-on:click="if(portions < 10) portions++">
+          <p class="border rounded-4xl py-2 px-4 bg-green-50" x-text="`${portions} Portion${getPluralSuffix('en')}`"></p>
+          <button class="selection_button bg-green-50" x-on:click="if(portions < 10) portions++">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
             </svg>            
@@ -49,14 +49,14 @@
         <hr class="divider">
 
         <div class="flex flex-row items-center gap-4 mt-4 justify-center">
-          <button class="selection_button flex flex-row" x-on:click="vegan = false" :class="!vegan ? 'bg-green-200' : ''">
+          <button class="selection_button flex flex-row bg-green-50" x-on:click="vegan = false" :class="!vegan ? 'bg-green-200' : ''">
             <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12.4427 9.88469 9.93591 7.50961c.81449-.81448.80559-2.06903-.02046-2.89511-.82608-.82607-2.08062-.83494-2.89511-.02046-.4791.47911-.71525 1.20118-.56606 1.82948-.6283-.14919-1.35037.08695-1.82948.56606-.81448.81448-.80561 2.06903.02047 2.89511.82607.82611 2.08062.83491 2.8951.02046l2.50233 2.29305m.8063-1.38c1.83-1.8299 5.1241-1.22213 7.1925.8462 2.0684 2.0684 2.3191 4.6228.2978 6.6441-1.0322 1.0321-2.1287 1.6094-3.2302 1.6518.5878-1.3405.2254-2.5874-.8127-3.2811-.918-.6135-2.1806-.7802-3.5479.179-1.10401-2.0578-1.30393-4.6355.1005-6.04Z"/>
             </svg>
             <p class="ml-2">Klassisch</p>              
           </button>
 
-          <button class="selection_button flex flex-row" x-on:click="vegan = true" :class="vegan ? 'bg-green-200' : ''">
+          <button class="selection_button flex flex-row bg-green-50" x-on:click="vegan = true" :class="vegan ? 'bg-green-200' : ''">
             <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 10.0419c-1.3902 0-1.3935-1.1249-4.20643-1.037-1.73056.05408-3.15551 2.2303-2.71168 5.3081C5.35949 16.2381 6.98619 21 8.99172 21c2.00548 0 2.07358-.8508 3.00828-.8508.9347 0 .8551.8508 3.0083.8508s3.6322-4.7619 3.9098-6.687c.4438-3.0778-.9811-5.25402-2.7117-5.3081-2.8129-.0879-2.8162 1.037-4.2064 1.037Zm2.3598-4.2126c-.8779.74829-1.8612.71957-2.7221.71957 0-.62576.0792-1.94012.8609-2.76911.7817-.82898 2.1271-.7664 2.6434-.7664 0 .59448.0956 2.06766-.7822 2.81594Z"/>
             </svg>          
@@ -172,6 +172,39 @@
         <p class="text-right">4 g</p>
         <p class="text-right" x-text="`${portions * 4} g`"></p>
       </div>
+    </div>
+
+    <div class="flex flex-col gap-4 my-6" x-data="{
+      comments: [
+        { time: '12:00:00', text: 'Super leckeres Rezept! Habe es gestern ausprobiert und es war ein Hit bei der Familie.' },
+        { time: '12:05:00', text: 'Ich habe das Rezept veganisiert und es hat genauso gut geschmeckt!' },
+        { time: '12:10:00', text: 'Die Zubereitung war einfach und das Curry war sehr aromatisch.' }
+      ],
+      message: '',
+      addComment() {
+        if (this.message.trim() !== '') {
+          this.comments.push({ time: new Date().toLocaleTimeString(), text: this.message });
+          this.message = '';
+        }
+      }
+    }">
+      <h2 class="section-header" x-text="`Kommentare (${comments.length})`"></h2>
+      <textarea class="w-full p-4 border border-gray-400 bg-gray-50 rounded-2xl" placeholder="Schreibe einen Kommentar" x-model="message"></textarea>
+      <button class="selection_button self-end flex flex-row items-center bg-green-50" x-on:click="addComment()">
+        <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m12 18-7 3 7-18 7 18-7-3Zm0 0v-5"/>
+        </svg>        
+        <p class="ml-2">Kommentar posten</p>
+      </button>
+
+      <ul class="flex flex-col gap-4">
+        <template x-for="comment in comments">
+          <li>
+            <p x-text="`${comment.time} Uhr`"></p>
+            <p class="text-lg" x-text="comment.text"></p>
+          </li>
+        </template>
+      </ul>
     </div>
   </div>
 </body>
