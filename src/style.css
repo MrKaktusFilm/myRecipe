@@ -17,5 +17,5 @@
 }
 
 .tab_button {
-  @apply rounded-4xl py-2 px-6 hover:bg-green-300 transition-colors duration-300
+  @apply rounded-4xl py-2 px-4 sm:px-6 hover:bg-green-300 transition-colors duration-300 text-base sm:text-xl font-semibold;
 }
